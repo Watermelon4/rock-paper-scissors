@@ -67,6 +67,7 @@ play again
 let playerScore = 0;
 let computerScore = 0;
 let numRoundsPlayed = 0;
+const numRounds = 5;
 // Str
 let playerSelection;
 let computerSelection;
@@ -200,7 +201,6 @@ function getplayerSelection() {
 
   if (valid) {
     return userInput;
-    // playerSelection = userInput;
   }
   else {
     console.log(INVALID_INPUT);
@@ -211,9 +211,9 @@ function getplayerSelection() {
 
 
 // Main
-
-playerSelection = getplayerSelection();
-// getplayerSelection();
-ruleset = rulesets[playerSelection];
-roundResult = compareSelection();
-console.log("End");
+for (let i = 0; i < numRounds; i++) {
+  playerSelection = getplayerSelection();
+  ruleset = rulesets[playerSelection];
+  roundResult = compareSelection();
+  console.log("End round");
+}
