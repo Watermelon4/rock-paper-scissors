@@ -222,8 +222,8 @@ if (playerScore > computerScore) {
   console.log(GAME_WIN_MESSAGE)
 }
 else if (computerScore > playerScore) {
-  console.log(GAME_DRAW_MESSAGE)
+  console.log(GAME_LOSE_MESSAGE)
 }
 else {
-  console.log(GAME_LOSE_MESSAGE)
+  console.log(GAME_DRAW_MESSAGE)
 }
