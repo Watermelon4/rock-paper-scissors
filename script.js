@@ -103,15 +103,14 @@ let rulesets = {
 // Functions
 
 /** 
- * Takes <userInput> and converts it to all lower case. If it matches, then 
- * return true, otherwise return false. Returns false if <userInput> is null.
+ * Takes <userInput> and compares it to the valid options. If it matches, then 
+ * return true, otherwise return false.
  */
 function checkUserInput(userInput="") {
   if (userInput == null) {
     return false;
   }
 
-  userInput = userInput.toLowerCase();
   switch(userInput) {
     case "rock": 
     case "paper": 
@@ -122,16 +121,17 @@ function checkUserInput(userInput="") {
   }
 }
 
-/** Gets <userInput> from the prompt and determines whether it is rock, paper 
- * or scissors. If <userInput> is valid, return it, otherwise call 
+/** Gets <userInput> from the prompt, converts it to lower case and determines 
+ * whether it is a valid option. If it is valid return it otherwise call 
  * getPlayerSelection again.
  */
 function getplayerSelection() {
   let userInput = prompt(PROMPT_MESSAGE);
+  userInput = userInput.toLowerCase();
   let valid = checkUserInput(userInput);
 
   if (valid) {
-    // proceed
+    return userInput
   }
   else {
     // ask again
