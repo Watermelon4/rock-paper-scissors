@@ -70,19 +70,14 @@ let playerSelection;
 let computerSelection;
 let roundResult;
 
-const PROMPT_MESSAGE = "rock, paper or scissors?"
-const GAME_WIN_MESSAGE = "You won the game!"
-const GAME_LOSE_MESSAGE = "You lost the game!"
-const ROUND_WIN_MESSAGE = "You won the round!"
-const ROUND_LOSE_MESSAGE = "You lost the round!"
-const displayPlayerScore = `Your score is ${playerScore}.`
-const displayComputerScore = `The computer's score is ${computerScore}.`
+const PROMPT_MESSAGE = "rock, paper or scissors?";
+const GAME_WIN_MESSAGE = "You won the game!";
+const GAME_LOSE_MESSAGE = "You lost the game!";
+const ROUND_WIN_MESSAGE = "You won the round!";
+const ROUND_LOSE_MESSAGE = "You lost the round!";
+const displayPlayerScore = `Your score is ${playerScore}.`;
+const displayComputerScore = `The computer's score is ${computerScore}.`;
 
-let rulesets = {
-  "rock": rockRules, 
-  "paper": paperRules,
-  "scissors": scissorRules
-};
 let rockRules = { 
   win: "scissors", 
   draw: "rock", 
@@ -98,3 +93,52 @@ let scissorRules = {
   draw: "scissors", 
   lose: "rock"
 };
+let rulesets = {
+  "rock": rockRules, 
+  "paper": paperRules,
+  "scissors": scissorRules
+};
+
+
+// Functions
+
+/** 
+ * Takes <userInput> and converts it to all lower case. If it matches, then 
+ * return true, otherwise return false. Returns false if <userInput> is null.
+ */
+function checkUserInput(userInput="") {
+  if (userInput == null) {
+    return false;
+  }
+
+  userInput = userInput.toLowerCase();
+  switch(userInput) {
+    case "rock": 
+    case "paper": 
+    case "scissors": 
+      return true;
+    default:
+      return false;
+  }
+}
+
+/** Gets <userInput> from the prompt and determines whether it is rock, paper 
+ * or scissors. If <userInput> is valid, return it, otherwise call 
+ * getPlayerSelection again.
+ */
+function getplayerSelection() {
+  let userInput = prompt(PROMPT_MESSAGE);
+  let valid = checkUserInput(userInput);
+
+  if (valid) {
+    // proceed
+  }
+  else {
+    // ask again
+  }
+}
+
+
+// Main
+
+getplayerSelection()
