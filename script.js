@@ -34,8 +34,8 @@ endGame() -> none
   - display final scores and winner
 
 variables
-  - int: userScore (<6)
-  - int: cpuScore (<6)
+  - int: playerScore (<6)
+  - int: computerScore (<6)
   - str: playerSelection (rock, paper, scissors)
   - str: computerSelection (rock, paper, scissors)
   - str: roundResult (win, lose, draw)
@@ -61,3 +61,40 @@ extras?
 reject improper input
 play again
 */
+
+// Variables
+let playerScore = 0;
+let computerScore = 0;
+let numRoundsPlayed = 0;
+let playerSelection;
+let computerSelection;
+let roundResult;
+
+const PROMPT_MESSAGE = "rock, paper or scissors?"
+const GAME_WIN_MESSAGE = "You won the game!"
+const GAME_LOSE_MESSAGE = "You lost the game!"
+const ROUND_WIN_MESSAGE = "You won the round!"
+const ROUND_LOSE_MESSAGE = "You lost the round!"
+const displayPlayerScore = `Your score is ${playerScore}.`
+const displayComputerScore = `The computer's score is ${computerScore}.`
+
+let rulesets = {
+  "rock": rockRules, 
+  "paper": paperRules,
+  "scissors": scissorRules
+};
+let rockRules = { 
+  win: "scissors", 
+  draw: "rock", 
+  lose: "paper"
+};
+let paperRules = { 
+  win: "rock", 
+  draw: "paper", 
+  lose: "scissors"
+};
+let scissorRules = { 
+  win: "paper", 
+  draw: "scissors", 
+  lose: "rock"
+};
