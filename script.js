@@ -34,12 +34,12 @@ endGame() -> none
   - display final scores and winner
 
 variables
-  - int: playerScore (<6)
-  - int: computerScore (<6)
+  - int: playerScore (<= numRounds)
+  - int: computerScore (<= numRounds)
   - str: playerSelection (rock, paper, scissors)
   - str: computerSelection (rock, paper, scissors)
   - str: roundResult (win, lose, draw)
-  - int: numRoundsPlayed (<6)
+  - int: roundsPlayed (< numRounds)
   - dict: ruleset (rock, paper, scissors)
 
 objects
@@ -121,7 +121,7 @@ function playRound() {
  * Play <numRounds> rounds of rock, paper, scissors.
  */
 function game() {
-  for (let i = 0; i < numRounds; i++) {
+  for (let roundsPlayed = 0; roundsPlayed < numRounds; roundsPlayed++) {
     playRound()
   }
   if (playerScore > computerScore) {
