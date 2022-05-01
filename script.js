@@ -107,6 +107,21 @@ let ruleset;
 
 
 // Functions
+/**
+ * Returns the result of the comparison between the player and computer.
+ */
+function compareSelection() {
+  let randomInt = Math.floor(Math.random() * 3)
+  switch(randomInt) {
+    case 0:
+      return "win"
+    case 1:
+      return "draw"
+    default:
+      return "lose"
+  }
+}
+
 /** 
  * Takes <userInput> and compares it to the valid options. If it matches, then 
  * return true, otherwise return false.
@@ -150,4 +165,5 @@ function getplayerSelection() {
 
 playerSelection = getplayerSelection();
 ruleset = rulesets[playerSelection];
+roundResult = compareSelection();
 console.log("End")
