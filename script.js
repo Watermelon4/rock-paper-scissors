@@ -42,6 +42,12 @@ variables
   - int: numRoundsPlayed (<6)
   - dict: ruleset (rock, paper, scissors)
 
+objects
+  - create dictionary
+  rockRules = {win: scissors, draw: rock, lose: paper}
+  paperRules = {win: rock, draw: paper, lose: scissors}
+  scissorRules = {win: paper, draw: scissors, lose: rock}
+
 Process
 1. Take playerSelection and choose which dict to use
   - ex. if rock then {win: scissors, lose: paper, ...}
