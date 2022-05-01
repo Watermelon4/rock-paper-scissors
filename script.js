@@ -58,8 +58,8 @@ Process
 6. Create message and display score
 
 extras?
-reject improper input
-play again
+reject improper input: implemented
+play again:: not implemented
 */
 
 // Variables
@@ -107,6 +107,33 @@ let ruleset;
 
 
 // Functions
+
+/**
+ * Play one round of rock, paper, scissors.
+ */
+function playRound() {
+  playerSelection = getplayerSelection();
+  ruleset = rulesets[playerSelection];
+  roundResult = compareSelection();
+  console.log("\n");
+}
+/**
+ * Play <numRounds> rounds of rock, paper, scissors.
+ */
+function game() {
+  for (let i = 0; i < numRounds; i++) {
+    playRound()
+  }
+  if (playerScore > computerScore) {
+    console.log(GAME_WIN_MESSAGE)
+  }
+  else if (computerScore > playerScore) {
+    console.log(GAME_LOSE_MESSAGE)
+  }
+  else {
+    console.log(GAME_DRAW_MESSAGE)
+  }
+}
 
 /**
  * Updates the game when the player wins and prints a summary of the round 
@@ -212,18 +239,5 @@ function getplayerSelection() {
 
 
 // Main
-for (let i = 0; i < numRounds; i++) {
-  playerSelection = getplayerSelection();
-  ruleset = rulesets[playerSelection];
-  roundResult = compareSelection();
-  console.log("\n");
-}
-if (playerScore > computerScore) {
-  console.log(GAME_WIN_MESSAGE)
-}
-else if (computerScore > playerScore) {
-  console.log(GAME_LOSE_MESSAGE)
-}
-else {
-  console.log(GAME_DRAW_MESSAGE)
-}
+
+game()
