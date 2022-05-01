@@ -75,27 +75,32 @@ let roundResult;
 const PROMPT_MESSAGE = "rock, paper or scissors?";
 const GAME_WIN_MESSAGE = "You won the game!";
 const GAME_LOSE_MESSAGE = "You lost the game!";
-const ROUND_WIN_MESSAGE = "You won the round!";
-const ROUND_LOSE_MESSAGE = "You lost the round!";
+let roundWinMessage = `You won the round! You chose ${playerSelection} and the 
+                       computer chose ${computerSelection}.`;
+let roundDrawMessage = `Draw! You both chose ${playerSelection}.`;
+let roundLoseMessage = `You lost the round! You chose ${playerSelection} and 
+                        the computer chose ${computerSelection}.`;
 const displayPlayerScore = `Your score is ${playerScore}.`;
 const displayComputerScore = `The computer's score is ${computerScore}.`;
-const INVALID_INPUT = "Invalid input, please try again."
+const INVALID_INPUT = "Invalid input, please try again.";
 
 // Dict
+// If ruleset = rockRules then player has chosen rock. Thus cpu wins with 
+// paper.
 let rockRules = { 
-  win: "scissors", 
+  win: "paper", 
   draw: "rock", 
-  lose: "paper"
-};
-let paperRules = { 
-  win: "rock", 
-  draw: "paper", 
   lose: "scissors"
 };
-let scissorRules = { 
-  win: "paper", 
-  draw: "scissors", 
+let paperRules = { 
+  win: "scissors", 
+  draw: "paper", 
   lose: "rock"
+};
+let scissorRules = { 
+  win: "rock", 
+  draw: "scissors", 
+  lose: "paper"
 };
 let rulesets = {
   "rock": rockRules, 
@@ -107,19 +112,57 @@ let ruleset;
 
 
 // Functions
+
 /**
- * Returns the result of the comparison between the player and computer.
+ * Updates the game when the player wins.
+ */
+function playerWinsRound() {
+  playerScore++;
+  console.log(ROUND_WIN_MESSAGE);
+}
+
+/**
+ * Updates the game when there is a draw.
+ */
+function drawRound() {
+  console.log(ROUND_DRAW_MESSAGE);
+}
+
+/**
+ * Updates the game when the computer wins.
+ */
+function computerWinsRound() {
+  computerScore++;
+  console.log(ROUND_LOSE_MESSAGE);
+}
+
+/**
+ * Returns the result of the comparison between the player and computer. 
+ * Sets <computerSelection> based on result. Increments winner's score by 1.
  */
 function compareSelection() {
-  let randomInt = Math.floor(Math.random() * 3)
-  switch(randomInt) {
+  let computerInt = Math.floor(Math.random() * 3)
+  switch(computerInt) {
+    // player win, cpu lose
     case 0:
-      return "win"
+      computerSelection = ruleset.lose;
+      roundResult = "win"
+      playerWinsRound();
+      break;
+    // draw
     case 1:
-      return "draw"
+      computerSelection = ruleset.draw;
+      roundResult = "draw"
+      drawRound();
+      break;
+    // player lose, cpu win
     default:
-      return "lose"
+      computerSelection = ruleset.win;
+      roundResult = "lose"
+      computerWinsRound();
   }
+  console.log(displayPlayerScore);
+  console.log(displayComputerScore);
 }
 
 /** 
