@@ -75,6 +75,7 @@ let roundResult;
 
 const PROMPT_MESSAGE = "rock, paper or scissors?";
 const GAME_WIN_MESSAGE = "You won the game!";
+const GAME_DRAW_MESSAGE = "You and the computer tied!"
 const GAME_LOSE_MESSAGE = "You lost the game!";
 const INVALID_INPUT = "Invalid input, please try again.";
 
@@ -215,5 +216,14 @@ for (let i = 0; i < numRounds; i++) {
   playerSelection = getplayerSelection();
   ruleset = rulesets[playerSelection];
   roundResult = compareSelection();
-  console.log("End round");
+  console.log("\n");
+}
+if (playerScore > computerScore) {
+  console.log(GAME_WIN_MESSAGE)
+}
+else if (computerScore > playerScore) {
+  console.log(GAME_DRAW_MESSAGE)
+}
+else {
+  console.log(GAME_LOSE_MESSAGE)
 }
