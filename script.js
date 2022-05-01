@@ -63,9 +63,11 @@ play again
 */
 
 // Variables
+// Int
 let playerScore = 0;
 let computerScore = 0;
 let numRoundsPlayed = 0;
+// Str
 let playerSelection;
 let computerSelection;
 let roundResult;
@@ -79,6 +81,7 @@ const displayPlayerScore = `Your score is ${playerScore}.`;
 const displayComputerScore = `The computer's score is ${computerScore}.`;
 const INVALID_INPUT = "Invalid input, please try again."
 
+// Dict
 let rockRules = { 
   win: "scissors", 
   draw: "rock", 
@@ -100,9 +103,10 @@ let rulesets = {
   "scissors": scissorRules
 };
 
+let ruleset;
+
 
 // Functions
-
 /** 
  * Takes <userInput> and compares it to the valid options. If it matches, then 
  * return true, otherwise return false.
@@ -145,4 +149,5 @@ function getplayerSelection() {
 // Main
 
 playerSelection = getplayerSelection();
+ruleset = rulesets[playerSelection];
 console.log("End")
