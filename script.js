@@ -5,74 +5,36 @@ Requirements
   - 5 games
   - display messages each round with choices and result
   - user input case insensitive
+  - display final winner
 
-game() -> none
-  - start game
+Extras
+  - reject improper input: implemented
+  - play again: not implemented
 
-playRound() -> none
-  - start round
-
-getplayerSelection(input) -> none
-  - convert to "rock", "paper", "scissors"
-
-getRuleset(playerSelection) -> ruleset
-  - determine which ruleset to use
-
-compareChoices(playerSelection) -> roundResult
-  - generate num for cpu to determine result
-
-updateScores(roundResult) -> none
-  - update scores based on roundResult
-
-getcomputerSelection(roundResult) -> computerSelection
-  - use roundResult on ruleset to get computerSelection
-
-roundEnd() -> none
-  - summarize choices, show scores, round number
-
-endGame() -> none
-  - display final scores and winner
-
-variables
+Variables
   - int: playerScore (<= numRounds)
   - int: computerScore (<= numRounds)
+  - int: roundsPlayed (< numRounds)
+  - int: numRounds (int, > 0)
   - str: playerSelection (rock, paper, scissors)
   - str: computerSelection (rock, paper, scissors)
   - str: roundResult (win, lose, draw)
-  - int: roundsPlayed (< numRounds)
-  - dict: ruleset (rock, paper, scissors)
-
-objects
-  - create dictionary
-  rockRules = {win: scissors, draw: rock, lose: paper}
-  paperRules = {win: rock, draw: paper, lose: scissors}
-  scissorRules = {win: paper, draw: scissors, lose: rock}
-
-Process
-1. Take playerSelection and choose which dict to use
-  - ex. if rock then {win: scissors, lose: paper, ...}
-2. Generate computerSelection as a number -1 to 1
-3. Compare computerSelection to 0 and get roundResult
-4. Update scores
-5. Use round result and dict to determine computerSelection
-6. Create message and display score
-
-extras?
-reject improper input: implemented
-play again:: not implemented
+  - dict: ruleset (rockRules, paperRules, scissorRules)
 */
 
+
 // Variables
+
 // Int
 let playerScore = 0;
 let computerScore = 0;
-let numRoundsPlayed = 0;
+let roundsPlayed = 0;
 const numRounds = 5;
+
 // Str
 let playerSelection;
 let computerSelection;
 let roundResult;
-
 const PROMPT_MESSAGE = "rock, paper or scissors?";
 const GAME_WIN_MESSAGE = "You won the game!";
 const GAME_DRAW_MESSAGE = "You and the computer tied!"
@@ -80,30 +42,29 @@ const GAME_LOSE_MESSAGE = "You lost the game!";
 const INVALID_INPUT = "Invalid input, please try again.";
 
 // Dict
-// If ruleset = rockRules then player has chosen rock. Thus cpu wins with 
-// paper.
-let rockRules = { 
+// Corresponds to play choice and defines the computer's choice.
+// player = rock -> rockRules, computerInt = 0 -> cpu = lose
+let ruleset;
+const rockRules = { 
   win: "paper", 
   draw: "rock", 
   lose: "scissors"
 };
-let paperRules = { 
+const paperRules = { 
   win: "scissors", 
   draw: "paper", 
   lose: "rock"
 };
-let scissorRules = { 
+const scissorRules = { 
   win: "rock", 
   draw: "scissors", 
   lose: "paper"
 };
-let rulesets = {
+const rulesets = {
   "rock": rockRules, 
   "paper": paperRules,
   "scissors": scissorRules
 };
-
-let ruleset;
 
 
 // Functions
