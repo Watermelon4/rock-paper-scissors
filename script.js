@@ -77,6 +77,7 @@ const ROUND_WIN_MESSAGE = "You won the round!";
 const ROUND_LOSE_MESSAGE = "You lost the round!";
 const displayPlayerScore = `Your score is ${playerScore}.`;
 const displayComputerScore = `The computer's score is ${computerScore}.`;
+const INVALID_INPUT = "Invalid input, please try again."
 
 let rockRules = { 
   win: "scissors", 
@@ -131,14 +132,17 @@ function getplayerSelection() {
   let valid = checkUserInput(userInput);
 
   if (valid) {
-    return userInput
+    return userInput;
   }
   else {
-    // ask again
+    console.log(INVALID_INPUT);
+    userInput = getplayerSelection()
+    return userInput;
   }
 }
 
 
 // Main
 
-getplayerSelection()
+playerSelection = getplayerSelection();
+console.log("End")
