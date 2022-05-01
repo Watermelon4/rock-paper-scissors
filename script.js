@@ -75,13 +75,6 @@ let roundResult;
 const PROMPT_MESSAGE = "rock, paper or scissors?";
 const GAME_WIN_MESSAGE = "You won the game!";
 const GAME_LOSE_MESSAGE = "You lost the game!";
-let roundWinMessage = `You won the round! You chose ${playerSelection} and the 
-                       computer chose ${computerSelection}.`;
-let roundDrawMessage = `Draw! You both chose ${playerSelection}.`;
-let roundLoseMessage = `You lost the round! You chose ${playerSelection} and 
-                        the computer chose ${computerSelection}.`;
-const displayPlayerScore = `Your score is ${playerScore}.`;
-const displayComputerScore = `The computer's score is ${computerScore}.`;
 const INVALID_INPUT = "Invalid input, please try again.";
 
 // Dict
@@ -118,14 +111,17 @@ let ruleset;
  */
 function playerWinsRound() {
   playerScore++;
-  console.log(ROUND_WIN_MESSAGE);
+  let roundWinMessage = `You won the round! You chose ${playerSelection} `
+  + `and the computer chose ${computerSelection}.`;
+  console.log(roundWinMessage);
 }
 
 /**
  * Updates the game when there is a draw.
  */
 function drawRound() {
-  console.log(ROUND_DRAW_MESSAGE);
+  let roundDrawMessage = `Draw! You both chose ${playerSelection}.`;
+  console.log(roundDrawMessage);
 }
 
 /**
@@ -133,7 +129,9 @@ function drawRound() {
  */
 function computerWinsRound() {
   computerScore++;
-  console.log(ROUND_LOSE_MESSAGE);
+  let roundLoseMessage = `You lost the round! You chose ${playerSelection} `
+  + `and the computer chose ${computerSelection}.`;
+  console.log(roundLoseMessage);
 }
 
 /**
@@ -161,6 +159,8 @@ function compareSelection() {
       roundResult = "lose"
       computerWinsRound();
   }
+  let displayPlayerScore = `Your score is ${playerScore}.`;
+  let displayComputerScore = `The computer's score is ${computerScore}.`;
   console.log(displayPlayerScore);
   console.log(displayComputerScore);
 }
