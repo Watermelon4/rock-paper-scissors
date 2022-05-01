@@ -107,7 +107,8 @@ let ruleset;
 // Functions
 
 /**
- * Updates the game when the player wins.
+ * Updates the game when the player wins and prints a summary of the round 
+ * in the console.
  */
 function playerWinsRound() {
   playerScore++;
@@ -117,7 +118,8 @@ function playerWinsRound() {
 }
 
 /**
- * Updates the game when there is a draw.
+ * Updates the game when there is a draw and prints a summary of the round 
+ * in the console.
  */
 function drawRound() {
   let roundDrawMessage = `Draw! You both chose ${playerSelection}.`;
@@ -125,7 +127,8 @@ function drawRound() {
 }
 
 /**
- * Updates the game when the computer wins.
+ * Updates the game when the computer wins and prints a summary of the round 
+ * in the console.
  */
 function computerWinsRound() {
   computerScore++;
@@ -136,33 +139,35 @@ function computerWinsRound() {
 
 /**
  * Returns the result of the comparison between the player and computer. 
- * Sets <computerSelection> based on result. Increments winner's score by 1.
+ * Sets <computerSelection> based on result. Calls another function to update 
+ * the game with the results. Prints the current scores.
  */
 function compareSelection() {
-  let computerInt = Math.floor(Math.random() * 3)
+  let computerInt = Math.floor(Math.random() * 3);
   switch(computerInt) {
     // player win, cpu lose
     case 0:
       computerSelection = ruleset.lose;
-      roundResult = "win"
+      roundResult = "win";
       playerWinsRound();
       break;
     // draw
     case 1:
       computerSelection = ruleset.draw;
-      roundResult = "draw"
+      roundResult = "draw";
       drawRound();
       break;
     // player lose, cpu win
     default:
       computerSelection = ruleset.win;
-      roundResult = "lose"
+      roundResult = "lose";
       computerWinsRound();
   }
   let displayPlayerScore = `Your score is ${playerScore}.`;
   let displayComputerScore = `The computer's score is ${computerScore}.`;
   console.log(displayPlayerScore);
   console.log(displayComputerScore);
+  return roundResult;
 }
 
 /** 
@@ -195,10 +200,11 @@ function getplayerSelection() {
 
   if (valid) {
     return userInput;
+    // playerSelection = userInput;
   }
   else {
     console.log(INVALID_INPUT);
-    userInput = getplayerSelection()
+    userInput = getplayerSelection();
     return userInput;
   }
 }
@@ -207,6 +213,7 @@ function getplayerSelection() {
 // Main
 
 playerSelection = getplayerSelection();
+// getplayerSelection();
 ruleset = rulesets[playerSelection];
 roundResult = compareSelection();
-console.log("End")
+console.log("End");
