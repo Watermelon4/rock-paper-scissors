@@ -4,15 +4,39 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link src="styles.css">
+  <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
   <title>Document</title>
 </head>
 <body>
-  <div id="container">
-    <button id="rock" class="button" type="button">Rock</button>
-    <button id="paper" class="button" type="button">Paper</button>
-    <button id="scissors" class="button" type="button">Scissors</button>
-  </div>
-  </body>
+  <main class="container">
+    <section class="player">
+      <div class ="info">
+        <header id="name">Player</header>
+        <div id="score"></div>
+      </div>
+      <div class="buttons">
+        <button id="rock" type="button">Rock</button>
+        <button id="paper" type="button">Paper</button>
+        <button id="scissors" type="button">Scissors</button>
+      </div>
+    </section>
+
+    <section>info
+      <table>box</table>
+    </section>
+
+    <div class="computer">
+      <div class ="info">
+        <header id="name">Computer</header>
+        <div id="score"></div>
+      </div>
+      <div class="buttons">
+        <button id="rock" type="button">Rock</button>
+        <button id="paper" type="button">Paper</button>
+        <button id="scissors" type="button">Scissors</button>
+      </div>
+    </div>
+  </main>
+</body>
 </html>
