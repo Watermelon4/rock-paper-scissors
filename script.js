@@ -72,8 +72,8 @@ const rulesets = {
 /**
  * Play one round of rock, paper, scissors.
  */
-function playRound() {
-  playerSelection = getplayerSelection();
+function playRound(buttonSelected) {
+  playerSelection = buttonSelected;
   ruleset = rulesets[playerSelection];
   roundResult = compareSelection();
   console.log("\n");
@@ -208,9 +208,9 @@ const buttons = player.querySelectorAll("button");
 console.log(buttons);
 
 // Each button
-const rock = player.querySelectorAll("#rock");
-const paper = player.querySelectorAll("#paper");
-const scissors = player.querySelectorAll("#scissors");
+const rock = player.querySelector("#rock");
+const paper = player.querySelector("#paper");
+const scissors = player.querySelector("#scissors");
 
 rock.addEventListener("click", function() {playRound("rock")});
 paper.addEventListener("click", function() {playRound("paper")});
