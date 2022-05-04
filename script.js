@@ -198,21 +198,24 @@ function getplayerSelection() {
   }
 }
 
-
 // Events
 
-const container = document.querySelector('#container');
-console.log(container);
+const player = document.querySelector(".player");
+console.log(player);
 
 // All buttons
-const buttons = document.querySelectorAll('button');
+const buttons = player.querySelectorAll("button");
 console.log(buttons);
-// call playRound()
 
 // Each button
-const rock = document.querySelectorAll('#rock');
-const paper = document.querySelectorAll('#paper');
-const scissors = document.querySelectorAll('#scissors');
+const rock = player.querySelectorAll("#rock");
+const paper = player.querySelectorAll("#paper");
+const scissors = player.querySelectorAll("#scissors");
+
+rock.addEventListener("click", function() {playRound("rock")});
+paper.addEventListener("click", function() {playRound("paper")});
+scissors.addEventListener("click", function() {playRound("scissors")});
+
 // update playerSelection
 
 // Main
