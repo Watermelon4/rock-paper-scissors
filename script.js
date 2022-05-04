@@ -199,6 +199,20 @@ function getplayerSelection() {
 }
 
 
-// Main
+// Events
 
-game()
+const container = document.querySelector('#container');
+console.log(container);
+
+// All buttons
+const buttons = document.querySelectorAll('button');
+console.log(buttons);
+// call playRound()
+
+// Each button
+const rock = document.querySelectorAll('#rock');
+const paper = document.querySelectorAll('#paper');
+const scissors = document.querySelectorAll('#scissors');
+// update playerSelection
+
+// Main
