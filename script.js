@@ -98,6 +98,16 @@ function endGame() {
       currentValue.disabled = true;
     },
   );
+  if (playerScore > computerScore) {
+    displayWinner();
+  }
+};
+
+function displayWinner() {
+  let winner = document.createElement("p");
+  winner.textContent = "Pie";
+  display.insertBefore(winner, playerImage);
+
 };
 
 function updateScores() {
