@@ -96,16 +96,18 @@ function endGame() {
       currentValue.disabled = true;
     },
   );
-  if (playerScore > computerScore) {
-    displayWinner();
-  }
+  displayWinner();
 };
 
 function displayWinner() {
   let winner = document.createElement("p");
-  winner.textContent = "Pie";
-  display.insertBefore(winner, playerImage);
-
+  if (playerScore == winScore) {
+    winner.textContent = "You Won!";
+  }
+  else {
+    winner.textContent = "Cpu Won!";
+  }
+  display.insertBefore(winner, computerImage);
 };
 
 function updateScores() {
