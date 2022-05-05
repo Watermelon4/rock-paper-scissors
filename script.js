@@ -55,7 +55,7 @@ scissors.addEventListener("click", function() {playRound("scissors")});
 
 // Functions
 /**
- * Play one round of rock, paper, scissors.
+ * 
  */
 function playRound(buttonSelected) {
     playerSelection = buttonSelected;
@@ -69,9 +69,7 @@ function playRound(buttonSelected) {
 }
 
 /**
- * Returns the result of the comparison between the player and computer. 
- * Sets <computerSelection> based on result. Calls another function to update 
- * the game with the results. Prints the current scores.
+ * 
  */
 function compareSelection() {
   let computerInt = Math.floor(Math.random() * 3);

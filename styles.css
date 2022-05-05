@@ -17,6 +17,7 @@ section {
 
 section.display {
   flex-direction: row;
+  justify-content: space-between;
 }
 
 div.buttons {
