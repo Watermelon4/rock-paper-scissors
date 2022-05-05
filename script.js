@@ -55,7 +55,8 @@ scissors.addEventListener("click", function() {playRound("scissors")});
 
 // Functions
 /**
- * 
+ * Plays and displays a round of rock, paper, scissors based on the user's 
+ * button selection.
  */
 function playRound(buttonSelected) {
     playerSelection = buttonSelected;
@@ -69,7 +70,8 @@ function playRound(buttonSelected) {
 }
 
 /**
- * 
+ * Generates a random number that is translated to an option based on the 
+ * player's selected option. 
  */
 function compareSelection() {
   let computerInt = Math.floor(Math.random() * 3);
@@ -90,6 +92,9 @@ function compareSelection() {
 
 
 // UI Updates
+/**
+ * Disables the buttons and displays the winner based on the current scores.
+ */
 function endGame() {
   allButtons.forEach(
     function(currentValue) {
@@ -129,6 +134,3 @@ function displaySelection() {
   computerImage.alt = `${computerSelection}`
   display.appendChild(computerImage);
 };
-
-
-// Main
