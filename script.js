@@ -30,7 +30,7 @@ let playerScore = 0;
 let computerScore = 0;
 let roundsPlayed = 0;
 const numRounds = 5;
-const winScore = 3;
+const winScore = 5;
 
 // Str
 let playerSelection;
@@ -74,34 +74,14 @@ const rulesets = {
  * Play one round of rock, paper, scissors.
  */
 function playRound(buttonSelected) {
-  if (playerScore != winScore && computerScore != winScore) {
     playerSelection = buttonSelected;
     ruleset = rulesets[playerSelection];
     roundResult = compareSelection();
     console.log("\n");
     roundsPlayed++;
-  }
-  else {
-    // End
-  }
-  
-}
-/**
- * Play <numRounds> rounds of rock, paper, scissors.
- */
-function game() {
-  for (let roundsPlayed = 0; roundsPlayed < numRounds; roundsPlayed++) {
-    playRound()
-  }
-  if (playerScore > computerScore) {
-    console.log(GAME_WIN_MESSAGE)
-  }
-  else if (computerScore > playerScore) {
-    console.log(GAME_LOSE_MESSAGE)
-  }
-  else {
-    console.log(GAME_DRAW_MESSAGE)
-  }
+    if (playerScore == winScore || computerScore == winScore) {
+      endGame();
+    }
 }
 
 /**
@@ -169,6 +149,21 @@ function compareSelection() {
   return roundResult;
 }
 
+// UI Updates
+function endGame() {
+  //const allButtons = ;
+  // disable buttons
+  // display winner
+  // replay?
+
+  allButtons.forEach(
+    function(currentValue) {
+      currentValue.disabled = true;
+    },
+  );
+
+};
+
 function updateScores() {
   const playerScoreCounter = player.querySelector("#score");
   const computerScoreCounter = computer.querySelector("#score");
@@ -176,16 +171,19 @@ function updateScores() {
   computerScoreCounter.textContent = computerScore;
 }; 
 
-// Events
+
+// JS nodes and events
 
 const player = document.querySelector(".player");
 console.log(player);
 const computer = document.querySelector(".computer");
 console.log(player);
 
-// All buttons
-const buttons = player.querySelectorAll("button");
-console.log(buttons);
+const allButtons = document.querySelectorAll("button");
+
+// player buttons
+const playerButtons = player.querySelectorAll("button");
+console.log(playerButtons);
 
 // Each button
 const rock = player.querySelector("#rock");
@@ -196,9 +194,9 @@ rock.addEventListener("click", function() {playRound("rock")});
 paper.addEventListener("click", function() {playRound("paper")});
 scissors.addEventListener("click", function() {playRound("scissors")});
 
-// update playerSelection
 
 // Main
+// endGame();
 
 
 // Unused
@@ -238,5 +236,23 @@ scissors.addEventListener("click", function() {playRound("scissors")});
 //     console.log(INVALID_INPUT);
 //     userInput = getplayerSelection();
 //     return userInput;
+//   }
+// }
+
+/**
+ * Play <numRounds> rounds of rock, paper, scissors.
+ */
+// function game() {
+//   for (let roundsPlayed = 0; roundsPlayed < numRounds; roundsPlayed++) {
+//     playRound()
+//   }
+//   if (playerScore > computerScore) {
+//     console.log(GAME_WIN_MESSAGE)
+//   }
+//   else if (computerScore > playerScore) {
+//     console.log(GAME_LOSE_MESSAGE)
+//   }
+//   else {
+//     console.log(GAME_DRAW_MESSAGE)
 //   }
 // }
