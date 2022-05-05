@@ -77,6 +77,7 @@ function playRound(buttonSelected) {
     playerSelection = buttonSelected;
     ruleset = rulesets[playerSelection];
     roundResult = compareSelection();
+    displaySelection();
     console.log("\n");
     roundsPlayed++;
     if (playerScore == winScore || computerScore == winScore) {
@@ -149,6 +150,7 @@ function compareSelection() {
   return roundResult;
 }
 
+
 // UI Updates
 function endGame() {
   //const allButtons = ;
@@ -171,11 +173,22 @@ function updateScores() {
   computerScoreCounter.textContent = computerScore;
 }; 
 
+function displaySelection() {
+  let playerImage = document.createElement("img");
+  playerImage.src = `images/${playerSelection}.png`;
+  display.appendChild(playerImage);
+  let computerImage = document.createElement("img");
+  computerImage.src = `images/${computerSelection}.png`;
+  display.appendChild(computerImage);
+}
 
+
+// Main
 // JS nodes and events
 
 const player = document.querySelector(".player");
 console.log(player);
+const display = document.querySelector(".display");
 const computer = document.querySelector(".computer");
 console.log(player);
 
@@ -193,10 +206,6 @@ const scissors = player.querySelector("#scissors");
 rock.addEventListener("click", function() {playRound("rock")});
 paper.addEventListener("click", function() {playRound("paper")});
 scissors.addEventListener("click", function() {playRound("scissors")});
-
-
-// Main
-// endGame();
 
 
 // Unused
