@@ -157,6 +157,7 @@ function compareSelection() {
   let displayComputerScore = `The computer's score is ${computerScore}.`;
   console.log(displayPlayerScore);
   console.log(displayComputerScore);
+  updateScores()
   return roundResult;
 }
 
@@ -198,9 +199,18 @@ function getplayerSelection() {
   }
 }
 
+function updateScores() {
+  const playerScoreCounter = player.querySelector("#score");
+  const computerScoreCounter = computer.querySelector("#score");
+  playerScoreCounter.textContent = playerScore;
+  computerScoreCounter.textContent = computerScore;
+}; 
+
 // Events
 
 const player = document.querySelector(".player");
+console.log(player);
+const computer = document.querySelector(".computer");
 console.log(player);
 
 // All buttons
