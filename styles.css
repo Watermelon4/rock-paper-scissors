@@ -35,3 +35,15 @@ button {
 #score {
   text-align: center;
 }
+
+#rock {
+  background-image: url("images/rock.png");
+}
+
+#paper {
+  background-image: url("images/paper.png");
+}
+
+#scissors {
+  background-image: url("images/scissors.png");
+}
