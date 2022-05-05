@@ -161,44 +161,6 @@ function compareSelection() {
   return roundResult;
 }
 
-/** 
- * Takes <userInput> and compares it to the valid options. If it matches, then 
- * return true, otherwise return false.
- */
-function checkUserInput(userInput="") {
-  if (userInput == null) {
-    return false;
-  }
-
-  switch(userInput) {
-    case "rock": 
-    case "paper": 
-    case "scissors": 
-      return true;
-    default:
-      return false;
-  }
-}
-
-/** Gets <userInput> from the prompt, converts it to lower case and determines 
- * whether it is a valid option. If it is valid return it otherwise call 
- * getPlayerSelection again.
- */
-function getplayerSelection() {
-  let userInput = prompt(PROMPT_MESSAGE);
-  userInput = userInput.toLowerCase();
-  let valid = checkUserInput(userInput);
-
-  if (valid) {
-    return userInput;
-  }
-  else {
-    console.log(INVALID_INPUT);
-    userInput = getplayerSelection();
-    return userInput;
-  }
-}
-
 function updateScores() {
   const playerScoreCounter = player.querySelector("#score");
   const computerScoreCounter = computer.querySelector("#score");
@@ -229,3 +191,44 @@ scissors.addEventListener("click", function() {playRound("scissors")});
 // update playerSelection
 
 // Main
+
+
+// Unused
+
+/** 
+ * Takes <userInput> and compares it to the valid options. If it matches, then 
+ * return true, otherwise return false.
+ */
+// function checkUserInput(userInput="") {
+//   if (userInput == null) {
+//     return false;
+//   }
+
+//   switch(userInput) {
+//     case "rock": 
+//     case "paper": 
+//     case "scissors": 
+//       return true;
+//     default:
+//       return false;
+//   }
+// }
+
+/** Gets <userInput> from the prompt, converts it to lower case and determines 
+ * whether it is a valid option. If it is valid return it otherwise call 
+ * getPlayerSelection again.
+ */
+// function getplayerSelection() {
+//   let userInput = prompt(PROMPT_MESSAGE);
+//   userInput = userInput.toLowerCase();
+//   let valid = checkUserInput(userInput);
+
+//   if (valid) {
+//     return userInput;
+//   }
+//   else {
+//     console.log(INVALID_INPUT);
+//     userInput = getplayerSelection();
+//     return userInput;
+//   }
+// }
