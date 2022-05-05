@@ -123,8 +123,10 @@ function displaySelection() {
     display.removeChild(computerImage);
   }
   playerImage.src = `images/${playerSelection}.png`;
+  playerImage.alt = `${playerSelection}`
   display.appendChild(playerImage);
   computerImage.src = `images/${computerSelection}.png`;
+  computerImage.alt = `${computerSelection}`
   display.appendChild(computerImage);
 };
 
