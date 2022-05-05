@@ -30,6 +30,7 @@ let playerScore = 0;
 let computerScore = 0;
 let roundsPlayed = 0;
 const numRounds = 5;
+const winScore = 3;
 
 // Str
 let playerSelection;
@@ -73,10 +74,17 @@ const rulesets = {
  * Play one round of rock, paper, scissors.
  */
 function playRound(buttonSelected) {
-  playerSelection = buttonSelected;
-  ruleset = rulesets[playerSelection];
-  roundResult = compareSelection();
-  console.log("\n");
+  if (playerScore != winScore && computerScore != winScore) {
+    playerSelection = buttonSelected;
+    ruleset = rulesets[playerSelection];
+    roundResult = compareSelection();
+    console.log("\n");
+    roundsPlayed++;
+  }
+  else {
+    // End
+  }
+  
 }
 /**
  * Play <numRounds> rounds of rock, paper, scissors.
