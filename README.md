@@ -7,4 +7,7 @@ basic game using js with a ui.
 
 Skills used:
 - javascript
+    - add and remove from DOM
+    - input from buttons
 - web devtools
+- css
