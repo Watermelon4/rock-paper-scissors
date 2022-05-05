@@ -9,11 +9,6 @@ const winScore = 5;
 let playerSelection = "";
 let computerSelection = "";
 let roundResult = "";
-const PROMPT_MESSAGE = "rock, paper or scissors?";
-const GAME_WIN_MESSAGE = "You won the game!";
-const GAME_DRAW_MESSAGE = "You and the computer tied!"
-const GAME_LOSE_MESSAGE = "You lost the game!";
-const INVALID_INPUT = "Invalid input, please try again.";
 
 // Dict
 // Corresponds to player choice and defines the computer's choice.
@@ -50,16 +45,15 @@ const rock = player.querySelector("#rock");
 const paper = player.querySelector("#paper");
 const scissors = player.querySelector("#scissors");
 
+let playerImage = document.createElement("img");
+let computerImage = document.createElement("img");
+
 rock.addEventListener("click", function() {playRound("rock")});
 paper.addEventListener("click", function() {playRound("paper")});
 scissors.addEventListener("click", function() {playRound("scissors")});
 
-let playerImage = document.createElement("img");
-let computerImage = document.createElement("img");
-
 
 // Functions
-
 /**
  * Play one round of rock, paper, scissors.
  */
